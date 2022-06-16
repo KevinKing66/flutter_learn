@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 /*los StateFulWidget requieren de un estado el cual lo usaremos para diferentes cosas
 entre ellas, cambiar de widget
@@ -16,6 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
     esta porpieda se modificara desde bottomNavigationBar con la propiedad
     currentIndex*/
     int currentPage = 0;
+    final PageController = new PageController();
+
     return MaterialApp(
       title: "my firt app in flutter",
       home: Scaffold(
@@ -27,6 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
           /*puedo pasar 1 componente o varios, segun que necesitemos
         body: CustomScreen(color: Colors.white), */
           body: PageView(
+            /*physics modifica el scroll entre componentes, lo posibles valores son:
+            BouncingScrollPhysics() => permite movernos deslizando los dedos
+            BouncingScrollPhysics() => no permite deslizarnos con los dedos
+            */
+            physics: NeverScrollableScrollPhysics(),
             children: [
               /*PARA PASAR DE UNA PAGINA, VIEW, SCREEN
             A LAOTRA, DESLIZO LOS DEDOS DE R  TO L
@@ -42,9 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //el index es igual a la posicion del elemento que toquemos
               currentPage = index;
               //tenemos que decirle a flutter que debe renderizar los cambios
-              setState(() {
-                
-              });
+              setState(() {});
             },
             backgroundColor: Colors.white,
             selectedItemColor: Colors.blueAccent,
