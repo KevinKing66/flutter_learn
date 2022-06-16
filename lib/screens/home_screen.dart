@@ -19,7 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
     esta porpieda se modificara desde bottomNavigationBar con la propiedad
     currentIndex*/
     int currentPage = 0;
-    final PageController = new PageController();
+    /*este controller lo usaremos para asignar el valor inicial del estado 
+    para hacer la transicion entre los componentes que tenemos en navBar*/
+    final PageController pageController = new PageController( initialPage: 1 );
 
     return MaterialApp(
       title: "my firt app in flutter",
@@ -32,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
           /*puedo pasar 1 componente o varios, segun que necesitemos
         body: CustomScreen(color: Colors.white), */
           body: PageView(
+            /*enlazamos el estado con el del controlador*/
+            controller: pageController,
             /*physics modifica el scroll entre componentes, lo posibles valores son:
             BouncingScrollPhysics() => permite movernos deslizando los dedos
             BouncingScrollPhysics() => no permite deslizarnos con los dedos
