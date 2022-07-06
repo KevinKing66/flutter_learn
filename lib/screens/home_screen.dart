@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     int currentPage = 0;
     /*este controller lo usaremos para asignar el valor inicial del estado 
     para hacer la transicion entre los componentes que tenemos en navBar*/
-    final PageController pageController = new PageController( initialPage: 1 );
+    final PageController pageController = new PageController(initialPage: 1);
 
     return MaterialApp(
       title: "my firt app in flutter",
@@ -34,11 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
           /*puedo pasar 1 componente o varios, segun que necesitemos
         body: CustomScreen(color: Colors.white), */
           body: PageView(
-            /*enlazamos el estado con el del controlador*/
+            /*enlazamos el estado o valor del index con el valor inicial del controlador
+            pero aun faltaria agg algo al onclick*/
             controller: pageController,
             /*physics modifica el scroll entre componentes, lo posibles valores son:
             BouncingScrollPhysics() => permite movernos deslizando los dedos
-            BouncingScrollPhysics() => no permite deslizarnos con los dedos
+            NeverScrollableScrollPhysics() => no permite deslizarnos con los dedos
             */
             physics: NeverScrollableScrollPhysics(),
             children: [
@@ -55,6 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: (index) {
               //el index es igual a la posicion del elemento que toquemos
               currentPage = index;
+              //usamos esta propieda para el cambio de widget, esto es necesario cuando nuestra physics = NeverScrollableScrollPhysics()
+              pageController.animateToPage(currentPage, //index de componente
+                  duration: Duration(milliseconds: 500), //duracion de animacion
+                  curve: Curves.easeIn); // tipo de animacion
+              //";"se usapor ue esuna funcion o algo de logica y no diseño
+
               //tenemos que decirle a flutter que debe renderizar los cambios
               setState(() {});
             },
