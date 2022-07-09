@@ -20,11 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     int currentPage = 0;
     /*este controller lo usaremos para asignar el valor inicial del estado 
     para hacer la transicion entre los componentes que tenemos en navBar*/
-<<<<<<< HEAD:lib/screens/state_ful_widget/home_screen.dart
     final PageController pageController = PageController(initialPage: 1);
-=======
-    final PageController pageController = new PageController(initialPage: 1);
->>>>>>> cb0dc5d7b37b01f4f40bb8b952ea5557faf424ef:lib/screens/home_screen.dart
 
     return MaterialApp(
       title: "my firt app in flutter",
@@ -46,16 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
             NeverScrollableScrollPhysics() => no permite deslizarnos con los dedos*/
             physics: const NeverScrollableScrollPhysics(),
             children: const [
-              //Screens o vistas
-=======
-            NeverScrollableScrollPhysics() => no permite deslizarnos con los dedos
-            */
-            physics: NeverScrollableScrollPhysics(),
-            children: [
               /*PARA PASAR DE UNA PAGINA, VIEW, SCREEN
             A LAOTRA, DESLIZO LOS DEDOS DE R  TO L
             Y VICEVERSA*/
->>>>>>> cb0dc5d7b37b01f4f40bb8b952ea5557faf424ef:lib/screens/home_screen.dart
               CustomScreen(color: Colors.black),
               CustomScreen(color: Colors.green),
             ],
@@ -63,7 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentPage, //lo usamos para cambiar el estado
             onTap: (index) {
-<<<<<<< HEAD:lib/screens/state_ful_widget/home_screen.dart
               //ontap es como el onclick, lo usaremos para cambiar el indice dl estado
               currentPage =
                   index; //el index es igual a la posicion del elemento que toquemos
@@ -72,16 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   duration:
                       const Duration(milliseconds: 500), //duracion de animacion
                   curve: Curves.easeIn); // tipo de animacion
-=======
               //el index es igual a la posicion del elemento que toquemos
               currentPage = index;
               //usamos esta propieda para el cambio de widget, esto es necesario cuando nuestra physics = NeverScrollableScrollPhysics()
               pageController.animateToPage(currentPage, //index de componente
-                  duration: Duration(milliseconds: 500), //duracion de animacion
+                  duration:
+                      const Duration(milliseconds: 500), //duracion de animacion
                   curve: Curves.easeIn); // tipo de animacion
               //";"se usapor ue esuna funcion o algo de logica y no diseño
->>>>>>> cb0dc5d7b37b01f4f40bb8b952ea5557faf424ef:lib/screens/home_screen.dart
-
               //tenemos que decirle a flutter que debe renderizar los cambios
               setState(() {});
             },
