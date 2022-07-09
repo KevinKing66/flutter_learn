@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 /*Al ser un widget que hereda de StatelessWidget
 no maneja estado por si solo*/
 class SimpleScreen extends StatelessWidget {
+  const SimpleScreen({Key? key}) : super(key: key);
+
   //En este metodo se escribe lo que retorna el widget
   @override
   Widget build(BuildContext context) {
@@ -12,11 +14,11 @@ class SimpleScreen extends StatelessWidget {
       //scaffold es para ajustarse a las dimensiones e la pantalla
       home: Scaffold(
         appBar: AppBar(
-          title: Text("header"),
+          title: const Text("header"),
           elevation: 10, //sombra
         ),
         body: //podemos usar operadores tenearios apoyados de estado para cambia el componente ex: body : condicion ? componente : else, o body : condicion ?  condicion ? componente : else
-            Center(
+            const Center(
           child: Text("Este es el body"),
         ),
         //footer de nav
@@ -27,7 +29,7 @@ class SimpleScreen extends StatelessWidget {
           unselectedItemColor: Colors.blue,
           selectedFontSize: 20, //medido en pixels
           unselectedFontSize: 10,
-          items: [
+          items: const [
             /*Estas son las opciones que apareceran abajo
               estos"items" tienen 2 argumentos obligatorios
               para escribir los arg obligatorios damos
